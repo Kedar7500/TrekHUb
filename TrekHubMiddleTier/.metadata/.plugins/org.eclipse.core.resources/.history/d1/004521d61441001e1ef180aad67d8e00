@@ -1,0 +1,44 @@
+package com.example.demo.services;
+
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entities.User;
+import com.example.demo.repositories.UserRegRepository;
+
+@Service
+public class UserRegService {
+	
+	@Autowired
+	UserRegRepository regrepo;
+	
+	public User saveUser(User u)
+	{
+		return regrepo.save(u);
+	}
+	
+	
+	public User getUserInfo(int id)
+	{
+		System.out.println(id+"");
+		//return regrepo.findById(id);
+	
+		Optional<User> u=regrepo.findById(id);
+		
+		User up=null;
+		try
+		{
+			up=u.get();
+		}
+		catch(NoSuchElementException e)
+		{
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		return up;
+	}
+
+}

@@ -1,0 +1,32 @@
+package com.example.demo.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class AddTekService
+{
+	@Autowired
+	AddTrekRepository addtrekrepo;
+	
+	public AddTrek save(AddTrek t)
+	{
+		return addtrekrepo.save(t);
+	}
+	public AddTrek getTrekInfo(int id)
+	{
+		System.out.println("addteckservice--"+id);
+		Optional<AddTrek> trekdata=addtrekrepo.findById(id);
+		System.out.println("trekid--"+trekdata );
+		AddTrek trek=null;
+		try
+		{
+			trek=trekdata.get();
+		}
+		catch(NoSuchElementException e)
+		{
+			trek=null;
+		}
+		return trek;
+	}
+
+}

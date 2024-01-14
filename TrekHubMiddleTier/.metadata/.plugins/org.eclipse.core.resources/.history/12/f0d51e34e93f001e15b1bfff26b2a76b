@@ -1,0 +1,13 @@
+package com.example.demo.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+@Transactional
+@Repository
+public interface PlanTrekRepository extends JpaRepository<PlanTrek, Integer> 
+{
+	@Query("Select e from PlanTrek e where e.trekidobj.trek_id=:id")
+	public PlanTrek getPlantrekbyid(int id);
+	
+
+}

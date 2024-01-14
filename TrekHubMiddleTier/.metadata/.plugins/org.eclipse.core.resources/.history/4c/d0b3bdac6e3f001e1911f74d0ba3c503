@@ -1,0 +1,9 @@
+package com.example.demo.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+@Repository
+public interface UserRegRepository extends JpaRepository<User, Integer> 
+{
+
+}

@@ -1,0 +1,16 @@
+package com.example.demo.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserRegService {
+	
+	@Autowired
+	UserRegRepository regrepo;
+	
+	public User saveUser(User u)
+	{
+		return regrepo.save(u);
+	}
+
+}

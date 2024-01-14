@@ -1,0 +1,19 @@
+package com.example.demo.repositories;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+@Transactional
+@Repository
+public interface UserRepository extends JpaRepository<T, ID> {
+
+	
+	@Query("SELECT e FROM User e where user_login_id.login_id = :id ")
+	public Employee getEmployee(int id);
+	
+	
+	
+}

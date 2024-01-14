@@ -1,0 +1,13 @@
+package com.example.demo.services;
+
+@Service
+public class FeedBackService {
+    
+	@Autowired
+	FeedBackRepository feedrepo;
+	
+	public FeedBack save(FeedBack f)
+	{
+		return feedrepo.save(f);
+	}
+}

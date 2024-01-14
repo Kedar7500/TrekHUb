@@ -1,0 +1,73 @@
+package com.example.demo.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="login")
+public class Login {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int login_id;
+	
+	String uid;
+	String pwd;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="role_id")
+	Role role_id;
+
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public Role getRole_id() {
+		return role_id;
+	}
+
+	public void setRole_id(Role role_id) {
+		this.role_id = role_id;
+	}
+
+	public Login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public Login(String uid, String pwd, Role role_id) {
+		super();
+		
+		this.uid = uid;
+		this.pwd = pwd;
+		this.role_id = role_id;
+	}
+
+	@Override
+	public String toString() {
+	    return "Login [ uid=" + uid + ", pwd=" + pwd + ", role_id=" + role_id.getId() + ", role_name=" + (role_id != null ? role_id.getRole_name() : null) + "]";
+	}
+
+
+}
+

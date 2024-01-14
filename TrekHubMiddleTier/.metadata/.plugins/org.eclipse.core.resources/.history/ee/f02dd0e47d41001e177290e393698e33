@@ -1,0 +1,14 @@
+package com.example.demo.services;
+
+@Service
+public class PaymentService {
+    @Autowired
+	PaymentRepository prepo;
+    
+    public Payment save(Payment p)
+    {
+    	return prepo.save(p);
+    }
+    
+    
+}

@@ -1,0 +1,16 @@
+package com.example.demo.controllers;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class LoginController {
+
+	@Autowired
+	LoginService  lservice;
+	
+	@PostMapping("/chkLogin")
+	
+	public Login chkLogin()
+	{
+		
+	}
+}

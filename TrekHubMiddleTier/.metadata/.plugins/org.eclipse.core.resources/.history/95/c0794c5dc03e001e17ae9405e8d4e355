@@ -1,0 +1,95 @@
+package com.example.demo.entities;
+
+public class UserDummy {
+	
+	String uid,pwd,fname,lname,email,contact,adharno,gender,addressline,city;
+	int pincode;
+	public UserDummy() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public UserDummy(String uid, String pwd, String fname, String lname, String email, String contact, String adharno,
+			String gender, String addressline, String city, int pincode) {
+		super();
+		this.uid = uid;
+		this.pwd = pwd;
+		this.fname = fname;
+		this.lname = lname;
+		this.email = email;
+		this.contact = contact;
+		this.adharno = adharno;
+		this.gender = gender;
+		this.addressline = addressline;
+		this.city = city;
+		this.pincode = pincode;
+	}
+	public String getUid() {
+		return uid;
+	}
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	public String getLname() {
+		return lname;
+	}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getContact() {
+		return contact;
+	}
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+	public String getAdharno() {
+		return adharno;
+	}
+	public void setAdharno(String adharno) {
+		this.adharno = adharno;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getAddressline() {
+		return addressline;
+	}
+	public void setAddressline(String addressline) {
+		this.addressline = addressline;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public int getPincode() {
+		return pincode;
+	}
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+	
+	
+
+}

@@ -1,0 +1,17 @@
+package com.example.demo.services;
+
+@Service
+public class TrekImageService 
+{
+	@Autowired
+	TrekImageRepository trekimgrepo;
+	
+	
+	
+	public TrekImage insertdata(TrekImage trekimg)
+	{
+		return trekimgrepo.save(trekimg);
+	}
+	
+
+}

@@ -1,0 +1,25 @@
+package com.example.demo.controllers;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class FeedBackController {
+
+	@Autowired
+	PlanTrekService plantrekserv;
+	
+	@Autowired
+	UserRegService uregservice;
+	
+	@Autowired
+	FeedBackService feedservice;
+	
+	@PostMapping("/feedback")
+	public FeedBack feedback(@RequestBody FeegBackDummy fd)
+	{
+		User user= uregservice.getUserInfo(fd.getTrekker_id());
+		PlanTrek pk=plantrekserv.getPlantrekbyid(fd.getPlantrek_id());
+		
+		FeedBack feedback=new FeedBack(fd.getRating(), fd.getComment(), user, pk);
+		return feedservice.save(feedback);
+	}
+}

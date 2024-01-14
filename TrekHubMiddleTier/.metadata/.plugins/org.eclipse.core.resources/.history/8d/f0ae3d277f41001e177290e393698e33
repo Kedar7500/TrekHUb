@@ -1,0 +1,32 @@
+package com.example.demo.controllers;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class PaymentController {
+
+	@Autowired
+	PlanTrekService plantrekserv;
+	
+	@Autowired
+	UserRegService uregservice;
+	
+	@Autowired
+	PaymentService paymentservice;
+	
+	@Autowired
+	TrekBookingService bookservice;
+	
+	@PostMapping("/payment")
+	public Payment payment(@RequestBody PaymentDummy py)
+	{
+		User user= uregservice.getUserInfo(py.getTrekker_id());
+		PlanTrek pk=plantrekserv.getPlantrekbyid(py.getPlantrek_id());
+		TrekBooking tt=bookservice.getBookingInfo(py.getBooking_id());
+		
+		Payment payment=new Payment(py.getPayment_mode(), py.getTransaction_id(),py.getAmount(), tt, pk, user);
+		
+		return paymentservice.save(payment);
+		
+	}
+}
+

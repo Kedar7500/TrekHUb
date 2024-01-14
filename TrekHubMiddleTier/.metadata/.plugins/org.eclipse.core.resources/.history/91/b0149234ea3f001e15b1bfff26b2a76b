@@ -1,0 +1,15 @@
+package com.example.demo.controllers;
+
+@RestController
+public class AddTrekController 
+{
+	@Autowired
+	AddTrekService addtrekservice;
+	
+	@PostMapping("/addtrek")
+	public AddTrek addtrek(@RequestBody AddTrek t)
+	{
+		return addtrekservice.save(t);
+	}
+
+}

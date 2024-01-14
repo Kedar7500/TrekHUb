@@ -1,0 +1,8 @@
+package com.example.demo.entities;
+
+public class UserDummy {
+	
+	String uid,pwd,fname,lname,email,contact,adharno,gender,addressline,city;
+	int pincode;
+
+}

@@ -1,0 +1,21 @@
+package com.example.demo.services;
+
+@Service
+public class PlanTrekService 
+{
+	@Autowired
+	PlanTrekRepository plantrekrepo;
+	
+	public PlanTrek save(PlanTrek t)
+	{
+		return plantrekrepo.save(t);
+	}
+	
+	public PlanTrek getPlantrekbyid(int pid)
+	{
+		return plantrekrepo.getPlantrekbyid(pid);
+	}
+	
+	
+
+}

@@ -1,0 +1,17 @@
+package com.example.demo.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
+public class Users 
+{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int user_id;
+	
+	
+
+}

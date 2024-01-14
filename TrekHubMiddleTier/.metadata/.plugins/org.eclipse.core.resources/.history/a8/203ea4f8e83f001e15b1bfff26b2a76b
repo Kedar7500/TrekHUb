@@ -1,0 +1,11 @@
+package com.example.demo.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AddTrekRepository extends JpaRepository<AddTrek, Integer> 
+{
+//	@Modifying
+//	@Query("update AddTrek t set t.trekimage=:data where t.trek_id=:id")
+//	public int uploadPhoto(int id, byte [] data);
+
+}

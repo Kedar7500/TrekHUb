@@ -1,0 +1,43 @@
+package com.example.demo.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entities.Login;
+import com.example.demo.entities.Role;
+import com.example.demo.entities.User;
+import com.example.demo.entities.UserDummy;
+import com.example.demo.services.LoginService;
+import com.example.demo.services.RoleService;
+import com.example.demo.services.UserServices;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class UserController {
+	
+	@Autowired
+	UserServices uservice;
+	
+	@Autowired
+	LoginService lservice;
+	
+	@Autowired
+	RoleService rservice;
+	
+	@PostMapping("/regguide")
+	public User GuideRegister(@RequestBody UserDummy udummy)
+	{
+		Role remp=rservice.getRole(2);
+		
+		Login l=new Login(udummy.getUid(),udummy.getPwd());
+		
+		Login lsaveuser=lservice.save(l);
+		
+		User user=new 
+		
+	}
+
+}

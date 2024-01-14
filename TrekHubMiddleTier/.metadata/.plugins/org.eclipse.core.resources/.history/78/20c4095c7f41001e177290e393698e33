@@ -1,0 +1,28 @@
+package com.example.demo.controllers;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class TrekBookingController {
+
+	@Autowired
+	TrekBookingService tservices;
+	
+	@Autowired
+	PlanTrekService plantrekserv;
+	
+	@Autowired
+	UserRegService uregservice;
+	
+	@PostMapping("/trekbook")
+	public TrekBooking booking(@RequestBody TrekBookingDummy tb)
+	{
+		
+		User user= uregservice.getUserInfo(tb.getTrekker_id());
+		PlanTrek pk=plantrekserv.getPlantrekbyid(tb.getPlantrek_id());
+		
+		TrekBooking tbooking=new TrekBooking( user, pk, tb.getMembers(), tb.getAmount());
+		
+		return tservices.save(tbooking);
+	}
+}
+

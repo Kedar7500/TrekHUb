@@ -1,0 +1,37 @@
+package com.example.demo.controllers;
+
+@RestController
+public class TrekImageController 
+{
+	@Autowired
+	TrekImageService trekimgservice;
+	
+	@Autowired
+	AddTrekService addtrekservice;
+	
+	@PostMapping(value = "/uploadimage/{trek_id}",consumes = "multipart/form-data")
+	public boolean uploadimage(@PathVariable("trek_id")int tid,@RequestBody MultipartFile file)
+	{
+		
+		AddTrek adt = addtrekservice.getTrekInfo(tid);
+		
+		System.out.println(tid);
+		System.out.println(file.getName());
+		
+		boolean flag=true;
+		try
+		{
+			TrekImage trekimageobj= new TrekImage(file.getBytes(),adt);
+			trekimgservice.insertdata(trekimageobj);
+		}
+		catch(Exception e)
+		{
+			flag=false;
+		}
+		return flag;
+		
+	}
+	
+
+}
+
